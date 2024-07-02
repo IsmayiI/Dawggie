@@ -1,4 +1,5 @@
-import './LoginPage.css'
+
+import styles from './LoginPage.module.css'
 import { ChangeEvent, useState } from 'react'
 import { Input } from '../../common/fields'
 import { Button } from '../../common/buttons'
@@ -9,11 +10,11 @@ const LoginPage = () => {
 
 
    return (
-      <div className='login_page'>
-         <div className='login_page_container'>
+      <div className={styles.login_page}>
+         <div className={styles.container}>
             <div>Header</div>
-            <div className='login_page_form_container'>
-               <div className='login_page_input_container'>
+            <div className={styles.form_container}>
+               <div className={styles.input_container}>
                   <Input
                      isError
                      helperText='validation'
@@ -21,7 +22,7 @@ const LoginPage = () => {
                      value={formValues.username}
                      onChange={(e: ChangeEvent<HTMLInputElement>) => setFormValues({ ...formValues, username: e.target.value })} />
                </div>
-               <div className='login_page_input_container'>
+               <div className={styles.input_container}>
                   <Input
                      value={formValues.password}
                      placeholder='password'
