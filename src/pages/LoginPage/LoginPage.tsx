@@ -4,34 +4,86 @@ import { ChangeEvent, useState } from 'react'
 import { Input } from '../../common/fields'
 import { Button } from '../../common/buttons'
 
+interface FormErrors {
+   username: string | null
+   password: string | null
+}
+
+const validateIsEmpty = (value: string) => {
+   if (!value) return 'field required'
+   return null
+}
+
+const validatePassword = (value: string) => {
+   return validateIsEmpty(value)
+}
+
+
+const validateUsername = (value: string) => {
+   return validateIsEmpty(value)
+}
+
+const loginFormValidateShema = {
+   username: validateUsername,
+   password: validatePassword
+}
+
+const validateLoginForm = <T extends keyof typeof loginFormValidateShema>(name: T, value: string) => {
+   return loginFormValidateShema[name](value)
+}
+
+
+
 const LoginPage = () => {
    const [formValues, setFormValues] = useState({ username: '', password: '' })
-
-
+   const [formErrors, setFormErrors] = useState<FormErrors>({ username: null, password: null })
 
    return (
-      <div className={styles.login_page}>
+      <div className={styles.page}>
          <div className={styles.container}>
-            <div>Header</div>
-            <div className={styles.form_container}>
-               <div className={styles.input_container}>
+            <div className={styles.headerContainer}>DAWGGIE</div>
+
+            <div className={styles.formContainer}>
+               <div className={styles.inputContainer}>
                   <Input
-                     isError
-                     helperText='validation'
                      placeholder='username'
                      value={formValues.username}
-                     onChange={(e: ChangeEvent<HTMLInputElement>) => setFormValues({ ...formValues, username: e.target.value })} />
+                     onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                        const username = e.target.value
+                        setFormValues({ ...formValues, username })
+                        const error = validateLoginForm('username', username)
+                        setFormErrors({ ...formErrors, username: error })
+                     }}
+                     {...(!!formErrors.username && {
+                        isError: !!formErrors.username,
+                        helperText: formErrors.username
+                     })} />
                </div>
-               <div className={styles.input_container}>
+
+               <div className={styles.inputContainer}>
                   <Input
+                     type='password'
                      value={formValues.password}
                      placeholder='password'
-                     onChange={(e: ChangeEvent<HTMLInputElement>) => setFormValues({ ...formValues, password: e.target.value })} />
+                     onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                        const password = e.target.value
+                        setFormValues({ ...formValues, password })
+                        const error = validateLoginForm('password', password)
+                        setFormErrors({ ...formErrors, password: error })
+                     }}
+                     {...(!!formErrors.password && {
+                        isError: !!formErrors.password,
+                        helperText: formErrors.password
+                     })} />
                </div>
+
                <div>
                   <Button>Sign in</Button>
                </div>
             </div>
+
+            <div className={styles.singUpContainer}>Create new account</div>
+
          </div>
       </div>
    )

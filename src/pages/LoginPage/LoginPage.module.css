@@ -1,4 +1,4 @@
-.login_page {
+.page {
    height: 100vh;
    display: flex;
    justify-content: center;
@@ -6,19 +6,41 @@
 }
 
 .container {
+   height: 500px;
    background: #ffffff;
    box-shadow: 0px 4px 50px 2px rgba(0, 0, 0, 0.15);
    border-radius: 20px;
    display: flex;
-   justify-content: center;
+   justify-content: space-between;
    align-items: center;
    flex-direction: column;
 }
 
-.form_container {
+.headerContainer {
+   display: flex;
+   justify-content: center;
+   align-items: end;
+   padding: 16px;
+   height: 150px;
+   width: 100%;
+   border-radius: 20px 20px 0 0;
+   color: #ffffff;
+   font-size: 40px;
+   background-image: url('../../static/images/dawggie_background.svg');
+}
+
+.formContainer {
    padding: 0 100px;
 }
 
-.input_container {
+.inputContainer {
    margin-bottom: 10px;
+}
+
+.singUpContainer {
+   margin-bottom: 15px;
+   font-weight: 600;
+   font-size: 12px;
+   color: #f5c678;
+   cursor: pointer;
 }
