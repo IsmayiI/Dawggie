@@ -17,6 +17,8 @@
 }
 
 .headerContainer {
+   font-family: 'Baloo';
+   font-weight: 800;
    display: flex;
    justify-content: center;
    align-items: end;
