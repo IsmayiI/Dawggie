@@ -1,8 +1,8 @@
 
 import styles from './LoginPage.module.css'
 import { ChangeEvent, useState } from 'react'
-import { Input } from '../../common/fields'
-import { Button } from '../../common/buttons'
+import { Input } from '@common/fields'
+import { Button } from '@common/buttons'
 
 interface FormErrors {
    username: string | null
