@@ -28,7 +28,10 @@
       "paths": {
          "@common/*": [
             "common/*"
-         ]
+         ],
+         "@pages": [
+            "pages"
+         ],
       }
    },
    "include": [

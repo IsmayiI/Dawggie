@@ -3,6 +3,7 @@ import styles from './LoginPage.module.css'
 import { ChangeEvent, useState } from 'react'
 import { Input } from '@common/fields'
 import { Button } from '@common/buttons'
+import { useNavigate } from 'react-router-dom'
 
 interface FormErrors {
    username: string | null
@@ -34,9 +35,10 @@ const validateLoginForm = <T extends keyof typeof loginFormValidateShema>(name: 
 
 
 
-const LoginPage = () => {
+export const LoginPage = () => {
    const [formValues, setFormValues] = useState({ username: '', password: '' })
    const [formErrors, setFormErrors] = useState<FormErrors>({ username: null, password: null })
+   const navigate = useNavigate()
 
    return (
       <div className={styles.page}>
@@ -82,11 +84,9 @@ const LoginPage = () => {
                </div>
             </div>
 
-            <div className={styles.singUpContainer}>Create new account</div>
-
+            <div className={styles.singUpContainer}
+               onClick={() => navigate('/registration')} >Create new account</div>
          </div>
       </div>
    )
 }
-
-export default LoginPage
