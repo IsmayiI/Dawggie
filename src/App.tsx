@@ -1,7 +1,7 @@
 import './App.css'
+import { useState } from 'react'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { LoginPage, NotFoundPage, RegistrationPage } from '@pages'
-import { useState } from 'react'
 
 const AuthRoutes = () => (
    <Routes>

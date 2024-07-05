@@ -1,9 +1,8 @@
-
 import styles from './LoginPage.module.css'
 import { ChangeEvent, useState } from 'react'
-import { Input } from '@common/fields'
-import { Button } from '@common/buttons'
 import { useNavigate } from 'react-router-dom'
+import { Input, PasswordInput } from '@common/fields'
+import { Button } from '@common/buttons'
 
 interface FormErrors {
    username: string | null
@@ -63,8 +62,7 @@ export const LoginPage = () => {
                </div>
 
                <div className={styles.inputContainer}>
-                  <Input
-                     type='password'
+                  <PasswordInput
                      value={formValues.password}
                      placeholder='password'
                      onChange={(e: ChangeEvent<HTMLInputElement>) => {
