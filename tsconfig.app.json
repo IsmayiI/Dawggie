@@ -32,6 +32,9 @@
          "@pages": [
             "pages"
          ],
+         "@images": [
+            "static/images"
+         ],
       }
    },
    "include": [
