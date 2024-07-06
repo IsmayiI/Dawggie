@@ -47,7 +47,7 @@ export const LoginPage = () => {
             <div className={styles.formContainer}>
                <div className={styles.inputContainer}>
                   <Input
-                     placeholder='username'
+                     label='username'
                      value={formValues.username}
                      onChange={(e: ChangeEvent<HTMLInputElement>) => {
                         const username = e.target.value

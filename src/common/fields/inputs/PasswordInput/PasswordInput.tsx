@@ -1,4 +1,4 @@
-import styles from '../input/Input.module.css'
+import styles from './PasswordInput.module.css'
 import { HTMLProps, useState } from "react"
 
 
