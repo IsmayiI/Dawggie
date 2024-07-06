@@ -63,8 +63,8 @@ export const LoginPage = () => {
 
                <div className={styles.inputContainer}>
                   <PasswordInput
+                     label='password'
                      value={formValues.password}
-                     placeholder='password'
                      onChange={(e: ChangeEvent<HTMLInputElement>) => {
                         const password = e.target.value
                         setFormValues({ ...formValues, password })
