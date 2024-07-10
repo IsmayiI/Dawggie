@@ -85,9 +85,7 @@ export const LoginPage = () => {
                         setFormValues({ ...formValues, notMyComputer })
                      }} />
                </div>
-               <div>
-                  <Button>Sign in</Button>
-               </div>
+               <Button>Sign in</Button>
             </div>
 
             <div className={styles.singUpContainer}
