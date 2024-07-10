@@ -1,7 +1,7 @@
 import styles from './LoginPage.module.css'
 import { ChangeEvent, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Input, PasswordInput } from '@common/fields'
+import { CheckBox, Input, PasswordInput } from '@common/fields'
 import { Button } from '@common/buttons'
 
 interface FormErrors {
@@ -35,7 +35,7 @@ const validateLoginForm = <T extends keyof typeof loginFormValidateShema>(name: 
 
 
 export const LoginPage = () => {
-   const [formValues, setFormValues] = useState({ username: '', password: '' })
+   const [formValues, setFormValues] = useState({ username: '', password: '', notMyComputer: false })
    const [formErrors, setFormErrors] = useState<FormErrors>({ username: null, password: null })
    const navigate = useNavigate()
 
@@ -76,7 +76,15 @@ export const LoginPage = () => {
                         helperText: formErrors.password
                      })} />
                </div>
-
+               <div className={styles.inputContainer}>
+                  <CheckBox
+                     checked={formValues.notMyComputer}
+                     label='This is not my device'
+                     onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                        const notMyComputer = e.target.checked
+                        setFormValues({ ...formValues, notMyComputer })
+                     }} />
+               </div>
                <div>
                   <Button>Sign in</Button>
                </div>
