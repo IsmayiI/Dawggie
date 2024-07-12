@@ -25,7 +25,8 @@
    cursor: text;
 }
 
-.focused .label {
+.input:focus+.label,
+.input:not(:placeholder-shown)+.label {
    transform: translate(-10%, -80%);
    font-size: 10px;
 }
