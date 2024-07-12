@@ -43,6 +43,6 @@
    margin-bottom: 15px;
    font-weight: 600;
    font-size: 12px;
-   color: #f5c678;
+   color: var(--primary);
    cursor: pointer;
 }

@@ -44,7 +44,7 @@ export const LoginPage = () => {
          <div className={styles.container}>
             <div className={styles.headerContainer}>DAWGGIE</div>
 
-            <div className={styles.formContainer}>
+            <form className={styles.formContainer}>
                <div className={styles.inputContainer}>
                   <Input
                      label='username'
@@ -86,7 +86,7 @@ export const LoginPage = () => {
                      }} />
                </div>
                <Button>Sign in</Button>
-            </div>
+            </form>
 
             <div className={styles.singUpContainer}
                onClick={() => navigate('/registration')} >Create new account</div>
